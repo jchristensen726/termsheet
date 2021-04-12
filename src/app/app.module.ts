@@ -21,8 +21,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
     DealListingComponent,
     LogInComponent,
     AddDialogComponent

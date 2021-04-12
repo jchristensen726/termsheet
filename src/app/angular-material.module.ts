@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table'; 
-import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog'
+import {MatDialogModule, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
 
 
 const materialModules = [
@@ -17,7 +17,8 @@ const materialModules = [
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatDialogModule     
+    MatDialogModule,
+    MatDialogRef     
 ];
 
 @NgModule({

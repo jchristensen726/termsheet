@@ -34,11 +34,11 @@ export class AddDialogComponent implements OnInit{
     
 
     this.form = fb.group({
-      dealName: [dealName, Validators.required],
-      purchasePrice: [purchasePrice, Validators.required],
-      address: [address, Validators.required],
-      netOperatingIncome: [netOperatingIncome, Validators.required],
-      capRate: [capRate, Validators.required]
+      dealName: [dealName],
+      purchasePrice: [purchasePrice],
+      address: [address],
+      netOperatingIncome: [netOperatingIncome],
+      capRate: [capRate]
   });
 }
 

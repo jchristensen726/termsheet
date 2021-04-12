@@ -1,33 +1,31 @@
 <mat-dialog-content [formGroup]="form">
   <div class="form">
     <mat-form-field>
-      <input matInput required placeholder="Deal Name" formControlName="dealName">
+      <input matInput placeholder="Deal Name" formControlName="dealName">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput required placeholder="Purchase Price" formControlName="purchasePrice">
+      <input matInput placeholder="Purchase Price" formControlName="purchasePrice">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput required placeholder="Address" formControlName="address">
+      <input matInput placeholder="Address" formControlName="address">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput required placeholder="Net Operating Income" formControlName="netOperatingIncome">
+      <input matInput placeholder="Net Operating Income" formControlName="netOperatingIncome">
     </mat-form-field>
   </div>
   <div class="form">
     <mat-form-field>
-      <input matInput required placeholder="Cap Rate" formControlName="capRate">
+      <input matInput placeholder="Cap Rate" formControlName="capRate">
     </mat-form-field>
   </div>
 
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Close</button>
-  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
-</mat-dialog-actions>
+
+<button class="mat-raised-button mat-primary" (click)="save()">Save</button>

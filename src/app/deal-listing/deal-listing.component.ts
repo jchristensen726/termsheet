@@ -1,7 +1,7 @@
 import { BlockScrollStrategy, Overlay, ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import {  Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
@@ -13,30 +13,31 @@ import { Listing } from '../models/Listing';
   templateUrl: './deal-listing.component.html',
   styleUrls: ['./deal-listing.component.scss']
 })
-export class DealListingComponent implements OnInit{
-  [x: string]: any;  
+export class DealListingComponent implements OnInit{  
      
-  constructor(@Inject(MAT_DIALOG_DATA)              
-              public dialog: MatDialog             
-              ) {}
-              
+  constructor(           
+                private dialog: MatDialog             
+              ) {}             
 
 
-  listings: Listing[] = [
-    {dealName: 'Deal 1',
+  listings = [
+    {id: 1,
+      dealName: 'Deal 1',
     purchasePrice: 100.00,
     address: '123 Fake St',
     netOperatingIncome: 2000,
     capRate: 2000/100        
 },
    {
-     dealName:'Deal 62',
+     id: 2,
+     dealName:'Deal 6277777777777777777777777777777777777777777777777777777777777',
      purchasePrice: 200.00,
      address: '124 Fake St',
      netOperatingIncome: 3000,
      capRate: 3000/200    
    },
    {
+     id: 3,
      dealName: 'Deal 3',
      purchasePrice: 300.00,
      address: '125 Fake St',
@@ -44,7 +45,7 @@ export class DealListingComponent implements OnInit{
      capRate: 4000/300    
    }
   ]
-  displayedColumns = ['dealName', 'purchasePrice', 'address', 'netOperatingIncome', 'capRate']
+  displayedColumns = ['dealName', 'purchasePrice', 'address', 'netOperatingIncome', 'capRate', 'action']
   dataSource = this.listings;
   
 
@@ -57,20 +58,36 @@ export class DealListingComponent implements OnInit{
   
 
   ngOnInit () { 
-    this.refresh(); 
+  
   }
 
-  openDialog() {
+  openDialog(action: any,obj: { action: any; }) {
+    obj.action = action;
+    const dialogRef = this.dialog.open(AddDialogComponent, {
+      width: '250px',
+      data:obj
+    });
 
-    const dialogConfig = new MatDialogConfig();
+    dialogRef.afterClosed().subscribe(result => {
+       if(result.event == 'Update'){
+        this.updateRowData(result.data);
+      }else if(result.event == 'Delete'){
+        this.deleteRowData(result.data);
+      }
+    });
+  }
+  deleteRowData(data: any) {
+    this.dataSource = this.dataSource.filter((value,key)=>{
+      return value.id != data.id;
+    });
+  }
+  
+  updateRowData(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
 
-    this.dialog.open(AddDialogComponent, dialogConfig);
-}
-
-  addDeal(obj: any) {    
+  addDeal(obj: any) {     
        const dialogRef = this.dialog.open(AddDialogComponent, {
        width: '450px',
        height: '500px',
@@ -82,22 +99,12 @@ export class DealListingComponent implements OnInit{
      this.listingsTable.renderRows();
     })      
   }
-
-  addRowData(row_obj: any) {
-     this.dataSource.push({      
-      dealName: row_obj.dealName,
-      purchasePrice: row_obj.purchasePrice,
-      address: row_obj.address,
-      netOperatingIncome: row_obj.netOperatingIncome,
-      capRate: row_obj.capRate
-    });
-    this.refresh();
-   }
-
-
-   refresh() {
-    //this.changeDetectorRef.detectChanges();
-  }
-
 }
+
+  
+
+
+
+
+
 
