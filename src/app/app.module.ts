@@ -1,4 +1,4 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularMaterialModule } from './angular-material.module';
 
@@ -15,31 +15,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DealListingComponent } from './deal-listing/deal-listing.component';
 
-import { LogInComponent} from './login/login.component';
+import { LogInComponent } from './login/login.component';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
-import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     DealListingComponent,
     LogInComponent,
     AddDialogComponent
-   ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserModule,  
+    BrowserModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,  
+    BrowserAnimationsModule,
     AngularMaterialModule
   ],
   entryComponents: [
-    AddDialogComponent  
+    AddDialogComponent
   ],
-  providers: [AuthGuardService],
+
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

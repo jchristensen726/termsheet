@@ -1,7 +1,7 @@
 import { Component, Injector, NgZone  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup,  Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+
 
 
 @Component(
