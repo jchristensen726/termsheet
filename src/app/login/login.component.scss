@@ -1,0 +1,29 @@
+.mat-form-field {
+  width: 600px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;  
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.password, .email, .button {
+  position: relative;  
+ 
+}
+
+.login-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+ 
+  button{
+    display: block;
+    margin: 0 auto;
+  }
+ 
+
+  
