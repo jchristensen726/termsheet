@@ -1,6 +1,4 @@
 import { BlockScrollStrategy, Overlay, ScrollStrategyOptions } from '@angular/cdk/overlay';
-
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import {  Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -14,10 +12,14 @@ import { Listing } from '../models/Listing';
   styleUrls: ['./deal-listing.component.scss']
 })
 export class DealListingComponent implements OnInit{  
+
+ 
      
   constructor(           
                 private dialog: MatDialog             
-              ) {}             
+              ) {
+
+              }             
 
 
   listings = [
@@ -47,6 +49,7 @@ export class DealListingComponent implements OnInit{
   ]
   displayedColumns = ['id', 'dealName', 'purchasePrice', 'address', 'netOperatingIncome', 'capRate', 'action']
   dataSource = this.listings;
+   
   
 
   @ViewChild('listingsTable')
@@ -55,6 +58,7 @@ export class DealListingComponent implements OnInit{
   filter!: ElementRef;
   
   table!: MatTable<Listing>;
+;
   
 
   ngOnInit () { 
@@ -67,9 +71,13 @@ export class DealListingComponent implements OnInit{
       data:listingData
     });
 
-    dialogRef.afterClosed().subscribe(result => {  
-           
-        this.updateRowData(result.data);     
+    dialogRef.afterClosed().subscribe(result => {            
+            
+           listingData.dealName = result.dealName,
+           listingData.purchasePrice = result.purchasePrice,
+           listingData.address = result.address,
+           listingData.netOperatingIncome = result.netOperatingIncome,
+           listingData.capRate = result.capRate 
     });
   } 
 
@@ -85,9 +93,8 @@ export class DealListingComponent implements OnInit{
   }
   
   updateRowData(data: any) {    
-    console.log(data);
-    this.dataSource = this.dataSource.filter((value,key)=>{
-      
+    
+    this.dataSource = this.dataSource.filter((value)=>{      
       if(value.id == data.id){
         value.id = data.id;
         value.dealName = data.dealName;
