@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+    <mat-form-field >
+      <input placeholder="{{action}} dealName" matInput [(ngModel)]="localData.dealName">
+    </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} purchasePrice" matInput [(ngModel)]="localData.purchasePrice">
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} address" matInput [(ngModel)]="localData.address">
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} netOperatingIncome" matInput [(ngModel)]="localData.netOperatingIncome">
+      </mat-form-field>    
+      <mat-form-field >
+        <input placeholder="{{action}} capRate" matInput [(ngModel)]="localData.capRate">
+      </mat-form-field>    
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  </div>
