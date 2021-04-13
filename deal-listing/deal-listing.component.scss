@@ -1,0 +1,42 @@
+ table {
+    width: 100%;  
+      }
+
+  .mat-header-cell {
+    background-color: cadetblue;
+  }
+
+  
+  table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+ 
+
+  table table-striped {
+    table.center {
+      margin-left:auto; 
+      margin-right:auto;
+    }
+    .body {
+      text-align:center;
+    }
+  }
+  .mat-button {
+    margin: 30px;
+  }
+
+  a {
+    color: blue;
+    cursor: pointer;
+  }
+
+  mat-icon {
+    
+    width: 20px;
+    font-size: 20px;
+    color:black;
+}
+
+
+
