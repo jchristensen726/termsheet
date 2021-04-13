@@ -1,0 +1,36 @@
+<div mat-dialog-content [formGroup]="form" >
+  <div class="form">
+  <mat-form-field >
+    <input placeholder="{{action}} id" matInput readonly formControlName="localData.id">
+  </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field >
+      <input placeholder="{{action}} dealName" matInput formControlName="localData.dealName">
+    </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field >
+        <input placeholder="{{action}} purchasePrice" matInput formControlName="localData.purchasePrice">
+      </mat-form-field>
+      </div>
+      <div class="form">
+      <mat-form-field >
+        <input placeholder="{{action}} address" matInput formControlName="localData.address">
+      </mat-form-field>
+      </div>
+      <div class="form">
+      <mat-form-field >
+        <input placeholder="{{action}} netOperatingIncome" matInput formControlName="localData.netOperatingIncome">
+      </mat-form-field>    
+      </div>
+      <div class="form">
+      <mat-form-field >
+        <input placeholder="{{action}} capRate" matInput formControlName="localData.capRate">
+      </mat-form-field>  
+      </div>  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="doAction()">Save</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  </div>
