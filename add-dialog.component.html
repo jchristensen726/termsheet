@@ -1,0 +1,31 @@
+<mat-dialog-content [formGroup]="form">
+  <div class="form">
+    <mat-form-field>
+      <input matInput placeholder="Deal Name" formControlName="dealName">
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field>
+      <input matInput placeholder="Purchase Price" formControlName="purchasePrice">
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field>
+      <input matInput placeholder="Address" formControlName="address">
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field>
+      <input matInput placeholder="Net Operating Income" formControlName="netOperatingIncome">
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field>
+      <input matInput placeholder="Cap Rate" formControlName="capRate">
+    </mat-form-field>
+  </div>
+
+</mat-dialog-content>
+
+
+<button class="mat-raised-button mat-primary" (click)="save()">Save</button>
